@@ -1,0 +1,12 @@
+#! /usr/bin/bash
+
+echo "You will be listing your bucket objects...."
+
+# Check if the user passed a name as a command-line argument
+if [ -z "$1" ]; then
+  echo "No bucket name provided!"
+  exit 1
+
+fi
+
+aws s3api list-objects --bucket $1 --query Contents[].Key

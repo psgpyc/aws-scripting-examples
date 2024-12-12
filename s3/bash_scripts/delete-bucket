@@ -1,0 +1,12 @@
+#! /usr/bin/bash
+
+echo "You will be deleting your bucket...."
+
+# Check if the user passed a name as a command-line argument
+if [ -z "$1" ]; then
+  echo "No bucket name provided!"
+  exit 1
+
+fi
+
+aws s3api delete-bucket --bucket $1 --output text
