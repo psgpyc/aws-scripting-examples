@@ -1,0 +1,22 @@
+#! /usr/bin/bash
+
+# Check if the user passed a name as a command-line argument
+if [ -z "$1" ]; then
+  echo "No bucket name provided!"
+  exit 1
+
+fi
+
+if [ -z "$2" ]; then
+  echo "No Key name provided!"
+  exit 1
+
+fi
+
+if [ -z "$3" ]; then
+  echo "No output filename provided!"
+  exit 1
+
+fi
+
+aws s3api get-object --bucket $1 --key $2 $3
